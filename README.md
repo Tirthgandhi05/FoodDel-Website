@@ -120,3 +120,64 @@ The Routes component is used to define the routes for the app. It wraps around d
 
 3} Padding toh chahiye hogi sari jagah to make space.
 
+4} Animations:
+```css
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+```
+keyframes - used for animations in css
+0%:
+This indicates the starting point of the animation. The percentage (0%) signifies that this is the beginning of the animation timeline. It means "at the very start of the animation.
+
+One more example:
+
+```css
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  50% {
+    opacity: 0.5;       
+    transform: translateY(10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;            
+    transform: translateY(0) scale(1); 
+  }
+}
+```
+0% (Start):
+opacity: 0;: The text is invisible at the start.
+transform: translateY(20px) scale(0.8);: The text starts 20 pixels lower than its final position and is slightly smaller (80% of its original size).
+
+50% (Midway):
+opacity: 0.5;: The text is halfway visible.
+transform: translateY(10px) scale(1.05);: The text moves slightly upwards (10 pixels) and scales up to 105% of its original size, giving a bounce effect.
+
+100% (End):
+opacity: 1;: The text is fully visible.
+transform: translateY(0) scale(1);: The text is at its final position and size.
+
+
+Easing Functions (ease)
+Easing functions control the speed of an animation over its duration. They define how the intermediate frames of the animation are calculated, creating different effects. Here are a few common types of easing:
+
+ease: This is a default easing function that starts the animation slowly, accelerates in the middle, and then slows down at the end. It creates a smooth transition.
+
+linear: The animation progresses at a constant speed from start to finish.
+
+ease-in: The animation starts slowly and speeds up toward the end.
+
+ease-out: The animation starts quickly and slows down toward the end.
+
+ease-in-out: The animation starts slowly, speeds up in the middle, and then slows down again at the end.
+
+The forwards value is a part of the animation-fill-mode property. It controls what happens to the animated element after the animation ends.
+forwards: The animated element retains the styles of the last keyframe after the animation ends. This means that if your animation ends at a specific state, the element will remain in that state instead of reverting back to its original position or styles.
