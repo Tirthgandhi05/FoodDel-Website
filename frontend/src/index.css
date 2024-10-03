@@ -28,3 +28,18 @@ a{
   color: #49557e;
   font-size: 18px;
 }
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  50% {
+    opacity: 0.5;       
+    transform: translateY(10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;            
+    transform: translateY(0) scale(1); 
+  }
+}

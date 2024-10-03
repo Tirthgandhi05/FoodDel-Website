@@ -78,3 +78,45 @@ also padding adds space between the written and button borders. transition makes
 }
 ```
 on hovering the cursor the background changes.
+
+
+**Day 3
+Important Things Learnt**
+1} React Hook: special tool that allows you to add extra features to your functional components. Functional components are just simple JavaScript functions that help you display parts of a webpage. But sometimes, you need more than just displaying things—you need your app to remember things or do something when something else happens. This is where hooks come in!
+
+Example: 
+a} useState- Imagine you are building a simple counter. Each time you click a button, you want the number on the screen to increase. Normally, a simple function can’t remember what the number was before the button was clicked. It would reset the number every time. You need some way for your function to remember things across clicks.
+That’s what the useState hook does! It gives your component a memory—it lets your component store and remember values, like the number of clicks.
+Synatx:
+```js
+const [stateVariable, setStateFunction] = useState(initialValue);
+```
+
+```js
+import React, { useState } from 'react';
+
+function Counter() {
+  // useState lets us create a variable (count) that React remembers between renders.
+  const [count, setCount] = useState(0); // Start count at 0
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+Code explanation of Navbar.jsx code:
+
+
+2} React Router DOM: 
+```jsx
+<Routes>:
+```
+The Routes component is used to define the routes for the app. It wraps around different Route components.
+
+3} Padding toh chahiye hogi sari jagah to make space.
+
