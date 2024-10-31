@@ -391,3 +391,171 @@ onClick={() => {
 If the current category is the same as the menu_name of the item, the "active" class is added to the image (e.g., className="active").
 Otherwise, no class is added (e.g., className="").
 This allows for conditional styling, like highlighting the selected menu item.
+
+
+**Day 5 
+Important Thins Learnt:**
+
+```jsx
+import { createContext } from "react";  // Importing a function to create context
+import { food_list } from "../assets/assets";  // Importing food_list data from assets
+
+// Create a context for the app
+export const StoreContext = createContext(null); 
+
+// StoreContextProvider component
+const StoreContextProvider = (props) => {
+  // The value that will be shared with other components
+  const contextValue = {
+    food_list  // This is where food_list data is stored to be used globally
+  };
+
+  return (
+    // Use StoreContext.Provider to make food_list accessible to other components
+    <StoreContext.Provider value={contextValue}>
+      {props.children}  // Render any component that is wrapped by this provider
+    </StoreContext.Provider>
+  );
+};
+
+export default StoreContextProvider;  // Exporting the provider so it can be used in other files
+```
+
+1) Context:
+Imagine you have data (like a menu of food items) that you want to share across multiple components. Normally, you would need to manually pass this data from one component to another, which can get complicated.
+createContext(null) creates a context with an initial value (null in this case). Think of it like a container where we can store data we want to share with our components.
+
+StoreContext.Provider is the Provider component for your StoreContext.
+The value={contextValue} part means you're providing the contextValue (which contains your data, like food_list) to all components that are children of this Provider.
+{props.children} means you're rendering the child components (the ones that are wrapped inside the StoreContextProvider in the component tree).
+
+```jsx
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <StoreContextProvider>
+      <App />
+    </StoreContextProvider>
+  </BrowserRouter>
+);
+```
+Here, StoreContextProvider wraps the App component (and everything inside App). This means that any component within App can now access the data provided by the StoreContext.Provider.
+
+2) 
+```css
+.food-item {
+    width: 100%;
+    margin: auto;
+    border-radius: 15px; /* Rounds the corners */
+    box-shadow: 0px 0px 10px #00000015; /* Adds a subtle shadow for a card effect */
+    transition: 0.3s; /* Adds a smooth transition for hover effects */
+    animation: fadeIn 1s; /* Animates the card on load */
+}
+```
+3) 
+1. *justify-content*
+Purpose: Aligns items horizontally along the main axis (which is usually the horizontal axis in a row-based flex container).
+Usage: It’s typically used to distribute space between items or position them within the flex container.
+Common values:
+flex-start: Aligns items to the start of the container (left side for row layout).
+flex-end: Aligns items to the end of the container (right side for row layout).
+center: Centers items along the main axis.
+space-between: Places space between items so that the first item is at the start and the last item is at the end of the container.
+space-around: Places equal space around all items, resulting in space on both ends of the container.
+2. *align-items*
+Purpose: Aligns items vertically along the cross-axis (which is usually the vertical axis in a row-based flex container).
+Usage: Used to position items based on the cross-axis of the container.
+Common values:
+flex-start: Aligns items at the top of the container (in row layout).
+flex-end: Aligns items at the bottom of the container (in row layout).
+center: Centers items vertically along the cross-axis.
+stretch: Stretches items to fill the container along the cross-axis.
+Example Comparison
+Suppose you have a horizontal flex container:
+
+```css
+Copy code
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+```
+In this setup:
+
+justify-content: space-around will place equal horizontal space around each item.
+align-items: center will vertically center the items within the container.
+
+Creating the Store Context
+javascript
+Copy code
+export const StoreContext = createContext(null);
+This line creates something called StoreContext. Imagine this as a "box" where we can store our data and then pass it around to different parts of our app. It starts empty (null), and we’ll fill it with some important data shortly.
+
+
+4) Context:
+
+*Defining the StoreContextProvider Component*
+```js
+const StoreContextProvider = (props) => { ... }
+```
+This is a special function (a component) that will manage our cart data and make it available to any part of the app that needs it. It’s called a Provider because it "provides" data.
+
+*Setting Up Cart State*
+```javascript
+const [cartItems, SetCartItems] = useState({});
+```
+Here, cartItems is a state variable we’re creating to keep track of items in the cart. It starts as an empty object {}, which will eventually store each item and its quantity. SetCartItems is the function we’ll use to update cartItems.
+
+*Adding Items to the Cart: addtoCart Function*
+```javascript
+const addtoCart = (itemId) => {
+    if (!cartItems[itemId]) {
+        SetCartItems((prev) => ({ ...prev, [itemId]: 1 }));
+    } else {
+        SetCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    }
+};
+```
+The addtoCart function increases the quantity of a specific item in the cart.
+If the item is not already in the cart:
+SetCartItems creates a new entry for the item with an initial quantity of 1.
+If the item is already in the cart:
+It increases the quantity by 1.
+In this line, ...prev means "keep all the existing items the same" and [itemId]: 1 or [itemId]: prev[itemId] + 1 adds or updates the quantity for that specific item.
+
+*Removing Items from the Cart: removeFromCart Function*
+```javascript
+const removeFromCart = (itemId) => {
+    SetCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+};
+```
+removeFromCart reduces the quantity of a specific item in the cart by 1.
+It works similarly to addtoCart, but instead of increasing, it decreases the quantity by 1.
+
+*Creating contextValue to Share Data*
+```javascript
+const contextValue = {
+    food_list,
+    cartItems,
+    SetCartItems,
+    addtoCart,
+    removeFromCart
+};
+```
+Here, we define contextValue, an object that holds all the data we want to share with other parts of our app:
+
+food_list (a list of items),
+cartItems (the current state of our cart),
+SetCartItems, addtoCart, and removeFromCart (functions to change the cart).
+
+*Wrapping Children Components with the Provider*
+```javascript
+return (
+    <StoreContext.Provider value={contextValue}>
+        {props.children}
+    </StoreContext.Provider>
+);
+```
+This StoreContext.Provider component is like a box that wraps around any children components. By setting value={contextValue}, we’re making all the information in contextValue available to these child components.
+
+props.children: This means any components wrapped by StoreContextProvider will be displayed inside it, like filling in an outline with content.
