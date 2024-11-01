@@ -559,3 +559,50 @@ return (
 This StoreContext.Provider component is like a box that wraps around any children components. By setting value={contextValue}, we’re making all the information in contextValue available to these child components.
 
 props.children: This means any components wrapped by StoreContextProvider will be displayed inside it, like filling in an outline with content.
+
+5) Understanding useEffect
+useEffect is a React hook used for side effects—actions that should happen outside of the component’s main logic, such as fetching data, updating the document title, or debugging. It takes two arguments:
+
+A function that describes what you want to do.
+A dependency array [ ] that tells React when to run the function.
+In your code:
+
+The function () => { console.log(cartItems); } will log cartItems to the console.
+The dependency array [cartItems] tells React to only run this function when cartItems changes.
+Why useEffect is Useful Here
+With this useEffect, you can see the cartItems updates every time an item is added or removed, which is useful for debugging to ensure that cart data is correct.
+
+
+**Day 6 
+Important Thins Learnt:**
+
+1) 
+When two values are used with the padding shorthand, they represent:
+First value (20px): Vertical padding (applies to both the top and bottom of the element).
+Second value (8vw): Horizontal padding (applies to both the left and right of the element).
+So, in this case:
+
+20px padding is applied to both the top and bottom of the .footer.
+8vw (viewport width units) padding is applied to the left and right. This scales with the viewport width, making the padding responsive.
+Combining padding with padding-top
+The padding-top property is used to set the top padding specifically. In this code:
+
+```css
+Copy code
+padding-top: 80px;
+```
+This padding-top: 80px; will override the 20px vertical padding specified in padding: 20px 8vw; for the top only, making the top padding a total of 80px while keeping the bottom padding at 20px.
+
+
+2) grid-template-columns: 
+
+2fr 1fr 1fr;: This defines the structure of columns within the grid.
+
+2fr 1fr 1fr specifies that the grid should have three columns.
+Each column takes up a different portion of the container width:
+The first column is assigned 2fr, meaning it occupies twice the space of each 1fr column.
+The second and third columns each get 1fr, which means they take up one part each of the total width.
+The fr unit stands for "fraction" and divides the container width proportionally based on the values assigned to each column.
+
+3) Media queries:
+These CSS media queries are used to make the navigation bar (navbar) more responsive. The rules apply styles only when the viewport width is at or below specified breakpoints, adjusting the size and spacing of navbar elements to fit smaller screens. only the applied sizes change rest all remains same.
