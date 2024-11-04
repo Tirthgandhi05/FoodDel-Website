@@ -606,3 +606,51 @@ The fr unit stands for "fraction" and divides the container width proportionally
 
 3) Media queries:
 These CSS media queries are used to make the navigation bar (navbar) more responsive. The rules apply styles only when the viewport width is at or below specified breakpoints, adjusting the size and spacing of navbar elements to fit smaller screens. only the applied sizes change rest all remains same.
+
+4) Span V/S Div
+Display Type:
+
+<div>: A block-level element, which means it takes up the full width available and starts on a new line.
+<span>: An inline-level element, which only takes up as much width as necessary and stays within the same line of text or content.
+Usage:
+
+<div>: Best for grouping larger sections or "blocks" of content. Commonly used to wrap multiple elements, like headings, paragraphs, images, or even entire sections of a webpage.
+<span>: Best for small, inline pieces of text or content that need to be styled separately (such as changing the color of a specific word within a paragraph).
+CSS and Layout Control:
+
+<div>: Since <div> is block-level, it can be styled more easily for layout purposes, like adding margins, padding, and aligning content. Block-level elements are suited for Flexbox and CSS Grid layouts.
+<span>: Can also be styled but won’t inherently create a new line or alter the page’s structure like <div> does.
+
+5) 
+```css
+.login-popup{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #00000090;
+    display: grid;
+}
+```
+
+position: absolute;:
+
+This allows the .login-popup element to be positioned relative to the nearest positioned ancestor. If there isn't one, it will position itself relative to the <body>, effectively covering the viewport.
+This also means that it can "float" over other content without affecting the layout of the surrounding elements.
+z-index: 1;:
+
+The z-index property determines the stack order of elements. Here, setting z-index: 1; ensures that .login-popup appears above other elements with lower z-index values or no z-index set.
+This property is only effective when position is set to something other than static (the default position).
+width: 100%; and height: 100%;:
+
+These make the .login-popup element span the full width and height of its containing element, typically the viewport. This ensures it covers the entire screen, creating an overlay effect.
+background-color: #00000090;:
+
+The background color #00000090 is a semi-transparent black. The last two digits, 90, represent the alpha (opacity) value in hexadecimal, making it about 56% opaque.
+This semi-transparent overlay gives the rest of the page a dimmed effect when the popup is displayed.
+display: grid;:
+
+display: grid is a layout style that allows the content inside .login-popup to be organized within a grid.
+This is often used to center the popup content horizontally and vertically by controlling where child elements are placed within the grid area.
+
+6) 

@@ -4,11 +4,12 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
-import Footer from "./components/Footer/footer"; 
+import Footer from "./components/Footer/Footer";
+import StoreContextProvider from "./context/StoreContext";
 
 const App = () => {
   return (
-    <>
+    <StoreContextProvider> {/* Wrap everything in the provider */}
       <div className="app">
         <Navbar />
         <Routes>
@@ -18,7 +19,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
-    </>
+    </StoreContextProvider>
   );
 };
 
