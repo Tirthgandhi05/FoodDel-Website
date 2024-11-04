@@ -653,4 +653,55 @@ display: grid;:
 display: grid is a layout style that allows the content inside .login-popup to be organized within a grid.
 This is often used to center the popup content horizontally and vertically by controlling where child elements are placed within the grid area.
 
-6) 
+6) Code to bring up login popup:
+```css
+.login-popup-container{
+    place-self: center;
+    width: max(23vw,330px);
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    animation: slideIn 0.5s;
+}
+```
+
+place-self: center;:
+
+place-self: center; is shorthand to center the element both vertically and horizontally within its parent grid container.
+This property assumes that .login-popup-container is inside a container (like .login-popup) that uses display: grid.
+width: max(23vw, 330px);:
+
+This sets the width of .login-popup-container to either 23vw (23% of the viewport width) or 330px, whichever is greater.
+This responsive width ensures the popup is appropriately sized for different screen widths, maintaining a minimum size of 330px and expanding as the viewport grows.
+color: #808080;:
+
+Sets the text color to a medium grey (#808080), providing a soft contrast against the white background.
+background-color: white;:
+
+The background color is set to white, giving the modal a clean and distinct look over the dimmed background provided by .login-popup.
+**display: flex; and flex-direction: column;:
+
+display: flex; makes .login-popup-container a flex container, allowing better control over its child elements.
+flex-direction: column; arranges the child elements vertically within the container, making it easy to stack content like input fields, buttons, or other items in a column layout.
+gap: 25px;:
+
+This property adds a 25px spacing between each child element within the flex container, giving a balanced separation between items.
+padding: 25px 30px;:
+
+This adds padding inside the container, specifically 25px on the top and bottom and 30px on the left and right.
+Padding creates space between the content of the modal and its edges, making the layout more visually appealing.
+border-radius: 8px;:
+
+This rounds the corners of the container with an 8px radius, giving it a smooth, modern look.
+font-size: 14px;:
+
+Sets the base font size for text inside the modal to 14px, which is common for legible, compact UI text.
+animation: SlideIn 0.5s;:
+
+animation: SlideIn 0.5s; applies a predefined animation called SlideIn that lasts 0.5s.
+The SlideIn animation (likely defined elsewhere in your CSS) would control how the modal enters the screen, adding a smooth transition effect.
