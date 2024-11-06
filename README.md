@@ -705,3 +705,83 @@ animation: SlideIn 0.5s;:
 
 animation: SlideIn 0.5s; applies a predefined animation called SlideIn that lasts 0.5s.
 The SlideIn animation (likely defined elsewhere in your CSS) would control how the modal enters the screen, adding a smooth transition effect.
+
+
+
+PS C:\Users\tirth\OneDrive\Documents\Tirth Gandhi\Food-del\backend> npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (backend)
+version: (1.0.0)                                                                                                                
+description:                                                                                                                    
+entry point: (index.js) server.js                                                                                               
+test command:                                                                                                                   
+git repository:                                                                                                                 
+keywords:                                                                                                                       
+author:                                                                                                                         
+license: (ISC)
+About to write to C:\Users\tirth\OneDrive\Documents\Tirth Gandhi\Food-del\backend\package.json:
+
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+Is this OK? (yes)
+
+npm notice
+npm notice New minor version of npm available! 10.8.3 -> 10.9.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.9.0
+npm notice To update run: npm install -g npm@10.9.0
+npm notice
+PS C:\Users\tirth\OneDrive\Documents\Tirth Gandhi\Food-del\backend> npm install express mongoose jsonwebtoken bcrypt cors doten body-parser multer stripe validator nodemon
+npm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/doten - Not found
+npm error 404
+npm error 404  'doten@*' is not in this registry.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+npm error A complete log of this run can be found in: C:\Users\tirth\AppData\Local\npm-cache\_logs\2024-11-04T18_49_18_207Z-debug-0.log
+PS C:\Users\tirth\OneDrive\Documents\Tirth Gandhi\Food-del\backend> npm install express mongoose jsonwebtoken bcrypt cors dotenv body-parser multer stripe validator nodemon
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated npmlog@5.0.1: This package is no longer supported.
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+npm warn deprecated gauge@3.0.2: This package is no longer supported.
+
+added 203 packages, and audited 204 packages in 7s
+
+23 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+Express: A web framework that simplifies routing and middleware handling.
+Mongoose: An ODM (Object Data Modeling) library for MongoDB, which lets you define schemas and work with data in a more structured way.
+jsonwebtoken (JWT): A library for handling JSON Web Tokens, used for stateless authentication.
+bcrypt: For hashing passwords securely.
+cors: To manage Cross-Origin Resource Sharing, which is useful when your frontend and backend are on different domains or ports.
+dotenv: For environment variables, which is a good practice for managing sensitive data.
+body-parser: Now typically bundled with Express, it’s used for parsing incoming request bodies.
+Multer: For handling file uploads, a common need in applications that manage images or files.
+Stripe: For handling payments. It’s advanced, but very useful in building a complete app with a payment feature.
+Validator: Useful for input validation, which is essential for building secure and robust applications.
+Nodemon: Automatically restarts the server when you make changes, which is a big productivity booster.
