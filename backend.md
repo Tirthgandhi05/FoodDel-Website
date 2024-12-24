@@ -111,6 +111,8 @@ PORT=3000
 Example: Instead of putting your database password in your code where anyone can see it, you put it in the .env file. When your app needs the password, it looks it up here instead.
 
 
+
+
 ```javascript
 import express from "express"
 import cors from "cors"
@@ -199,3 +201,14 @@ In modern JavaScript, async and await are used to handle asynchronous code in a 
 async: Marks the function as asynchronous, meaning that the function will always return a promise, even if no explicit promise is returned within the function. You can then use await inside this function to wait for promises to resolve.
 
 await: It’s used to pause the execution of the function until the promise resolves. In this case, we are pausing the execution until the database connection is established.
+
+
+```jsx
+import express from "express";
+import { addFood } from "../controllers/foodController.js";
+import multer from "multer";
+
+const foodRouter = express.Router();
+```
+
+routers are actually responsible to call the controllers like main logic controllers ka but konsa controller call karna uska logic router ka.

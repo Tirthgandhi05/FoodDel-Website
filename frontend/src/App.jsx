@@ -13,9 +13,8 @@ const App = () => {
 
   return (
     <>
-    {showLogin?<LoginPopup/>:<></>}
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : null}
       <StoreContextProvider>
-        {" "}
         {/* Wrap everything in the provider */}
         <div className="app">
           <Navbar setShowLogin={setShowLogin} />
@@ -30,5 +29,6 @@ const App = () => {
     </>
   );
 };
+
 
 export default App;
